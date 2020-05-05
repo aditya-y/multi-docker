@@ -1,0 +1,27 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t adityayadav/react-test -f ./client/Dockerfile.dev ./client
+  - docker build myotherproject
+
+script:
+  -  docker run -e CI=true adityayadav/react-test npm test
+
+after_success:
+  - docker build -t adityayadav/multi-client ./client
+  - docker build -t adityayadav/multi-client ./nginx
+  - docker build -t adityayadav/multi-client ./server
+  - docker build -t adityayadav/multi-client ./worker
+
+  #log in to docker CLI
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  #Take those image and push to docker hub
+
+  -docker push adityayadav/multi-client
+  -docker push adityayadav/multi-nginx
+  -docker push adityayadav/multi-server
+  -docker push adityayadav/multi-worker
