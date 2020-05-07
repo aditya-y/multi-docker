@@ -21,7 +21,7 @@ after_success:
 
   #Take those image and push to docker hub
 
-  -docker push adityayadav/multi-client
-  -docker push adityayadav/multi-nginx
-  -docker push adityayadav/multi-server
-  -docker push adityayadav/multi-worker
+  - docker push adityayadav/multi-client
+  - docker push adityayadav/multi-nginx
+  - docker push adityayadav/multi-server
+  - docker push adityayadav/multi-worker
