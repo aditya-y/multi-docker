@@ -4,7 +4,7 @@ services:
 
 before_install:
   - docker build -t adityayadav/react-test -f ./client/Dockerfile.dev ./client
-  - docker build myotherproject
+#  - docker build myotherproject
 
 script:
   -  docker run -e CI=true adityayadav/react-test npm test
