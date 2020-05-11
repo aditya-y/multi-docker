@@ -21,7 +21,6 @@ after_success:
 
   #Take those image and push to docker hub
 
-<<<<<<< HEAD
   -docker push adityayadav/multi-client
   -docker push adityayadav/multi-nginx
   -docker push adityayadav/multi-server
@@ -40,9 +39,3 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
     secure: $AWS_SECRET_KEY
-=======
-  - docker push adityayadav/multi-client
-  - docker push adityayadav/multi-nginx
-  - docker push adityayadav/multi-server
-  - docker push adityayadav/multi-worker
->>>>>>> e06bbb107937c8b738076e500134dc28e73dbd41
